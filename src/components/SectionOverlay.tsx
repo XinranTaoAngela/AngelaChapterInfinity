@@ -13,15 +13,15 @@ function EducationSection() {
       {EDUCATION.map((entry) => (
         <div key={entry.school}>
           <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-            <h3 className="text-[20px] text-white sm:text-[24px]" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h3 className="text-[20px] text-[var(--ink)] sm:text-[24px]" style={{ fontFamily: 'var(--font-heading)' }}>
               {entry.school}
             </h3>
-            <span className="text-[14px] text-white/60 sm:text-[16px]">{entry.period}</span>
+            <span className="text-[14px] text-[var(--ink)]/60 sm:text-[16px]">{entry.period}</span>
           </div>
-          <p className="mt-1 text-[16px] text-white/80 sm:text-[18px]">{entry.degree}</p>
+          <p className="mt-1 text-[16px] text-[var(--ink)]/80 sm:text-[18px]">{entry.degree}</p>
           <ul className="mt-3 flex flex-col gap-1.5">
             {entry.details.map((detail) => (
-              <li key={detail} className="text-[14px] leading-relaxed text-white/60 sm:text-[16px]">
+              <li key={detail} className="text-[14px] leading-relaxed text-[var(--ink)]/60 sm:text-[16px]">
                 {detail}
               </li>
             ))}
@@ -38,15 +38,15 @@ function ExperienceSection() {
       {EXPERIENCE.map((entry) => (
         <div key={`${entry.role}-${entry.org}`}>
           <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-            <h3 className="text-[20px] text-white sm:text-[24px]" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h3 className="text-[20px] text-[var(--ink)] sm:text-[24px]" style={{ fontFamily: 'var(--font-heading)' }}>
               {entry.role}
             </h3>
-            <span className="text-[14px] text-white/60 sm:text-[16px]">{entry.period}</span>
+            <span className="text-[14px] text-[var(--ink)]/60 sm:text-[16px]">{entry.period}</span>
           </div>
-          <p className="mt-1 text-[16px] text-white/80 sm:text-[18px]">{entry.org}</p>
+          <p className="mt-1 text-[16px] text-[var(--ink)]/80 sm:text-[18px]">{entry.org}</p>
           <ul className="mt-3 flex flex-col gap-1.5">
             {entry.bullets.map((bullet) => (
-              <li key={bullet} className="text-[14px] leading-relaxed text-white/60 sm:text-[16px]">
+              <li key={bullet} className="text-[14px] leading-relaxed text-[var(--ink)]/60 sm:text-[16px]">
                 {bullet}
               </li>
             ))}
@@ -61,7 +61,7 @@ function PublicationsSection() {
   return (
     <div className="flex flex-col gap-6">
       {PUBLICATIONS.map((entry) => (
-        <p key={entry.citation} className="text-[15px] leading-relaxed text-white/80 sm:text-[17px]">
+        <p key={entry.citation} className="text-[15px] leading-relaxed text-[var(--ink)]/80 sm:text-[17px]">
           {entry.link ? (
             <a href={entry.link} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:opacity-60">
               {entry.citation}
@@ -78,10 +78,10 @@ function PublicationsSection() {
 function ContactSection() {
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-[15px] text-white/60 sm:text-[17px]">{CONTACT.location}</p>
+      <p className="text-[15px] text-[var(--ink)]/60 sm:text-[17px]">{CONTACT.location}</p>
       <a
         href={`mailto:${CONTACT.email}`}
-        className="text-[18px] text-white underline underline-offset-2 hover:opacity-60 sm:text-[22px]"
+        className="text-[18px] text-[var(--ink)] underline underline-offset-2 hover:opacity-60 sm:text-[22px]"
       >
         {CONTACT.email}
       </a>
@@ -89,7 +89,7 @@ function ContactSection() {
         href={CONTACT.linkedin}
         target="_blank"
         rel="noreferrer"
-        className="text-[18px] text-white underline underline-offset-2 hover:opacity-60 sm:text-[22px]"
+        className="text-[18px] text-[var(--ink)] underline underline-offset-2 hover:opacity-60 sm:text-[22px]"
       >
         LinkedIn
       </a>
@@ -97,7 +97,7 @@ function ContactSection() {
         href={CONTACT.github}
         target="_blank"
         rel="noreferrer"
-        className="text-[18px] text-white underline underline-offset-2 hover:opacity-60 sm:text-[22px]"
+        className="text-[18px] text-[var(--ink)] underline underline-offset-2 hover:opacity-60 sm:text-[22px]"
       >
         GitHub
       </a>
@@ -117,7 +117,7 @@ export function SectionOverlay({ section, onClose }: SectionOverlayProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-20 flex justify-center overflow-y-auto bg-black/90 backdrop-blur-md transition-opacity duration-300 ${
+      className={`fixed inset-0 z-20 flex justify-center overflow-y-auto bg-[var(--cream)]/95 backdrop-blur-md transition-opacity duration-300 ${
         isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
       }`}
     >
@@ -126,7 +126,7 @@ export function SectionOverlay({ section, onClose }: SectionOverlayProps) {
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="fixed right-5 top-4 text-[28px] text-white transition-opacity hover:opacity-60 sm:right-8 sm:top-5"
+          className="fixed right-5 top-4 text-[28px] text-[var(--ink)] transition-opacity hover:opacity-60 sm:right-8 sm:top-5"
         >
           &times;
         </button>
@@ -134,7 +134,7 @@ export function SectionOverlay({ section, onClose }: SectionOverlayProps) {
         {section && (
           <>
             <h2
-              className="mb-8 text-[32px] text-white sm:mb-12 sm:text-[42px]"
+              className="mb-8 text-[32px] text-[var(--ink)] sm:mb-12 sm:text-[42px]"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               {SECTION_TITLES[section]}

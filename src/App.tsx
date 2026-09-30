@@ -8,7 +8,7 @@ function App() {
   const [activeSection, setActiveSection] = useState<SectionKey | null>(null)
 
   return (
-    <div className="relative min-h-screen bg-black">
+    <div className="relative min-h-screen bg-[var(--cream)]">
       <CharacterBackground />
       <Navbar onNavClick={setActiveSection} />
       <Hero />

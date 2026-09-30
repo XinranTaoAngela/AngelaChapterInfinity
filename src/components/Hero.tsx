@@ -1,37 +1,15 @@
-import { useEffect, useState } from 'react'
 import { useTypewriter } from '../hooks/useTypewriter'
-import { CopyIcon } from './CopyIcon'
 
-const TYPEWRITER_TEXT =
-  "Glad you stopped in. Good taste tends to find us. Now, what are we building?"
-
-const PILL_LABELS = [
-  'Pitch us an idea',
-  'Come work here',
-  'Send a brief hello',
-  'See how we operate',
-]
-
-const EMAIL = 'hello@mainframe.co'
+const TYPEWRITER_TEXT = "Glad you're here — take a look at what I've been building lately."
 
 export function Hero() {
   const { displayed, done } = useTypewriter(TYPEWRITER_TEXT)
-  const [pillsVisible, setPillsVisible] = useState(false)
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setPillsVisible(true), 400)
-    return () => clearTimeout(timeout)
-  }, [])
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(EMAIL)
-  }
 
   return (
     <section className="relative z-[1] flex h-screen flex-col justify-end overflow-hidden px-5 pb-12 sm:px-8 md:justify-center md:px-10 md:pb-0">
       <div className="relative z-10 max-w-xl">
         <div
-          className="pointer-events-none mb-5 select-none text-white sm:mb-6"
+          className="pointer-events-none mb-5 select-none text-[var(--ink)] sm:mb-6"
           style={{
             fontSize: 'clamp(18px, 4vw, 26px)',
             lineHeight: 1.3,
@@ -39,13 +17,13 @@ export function Hero() {
             filter: 'blur(4px)',
           }}
         >
-          Hey there, meet A.R.I.A,
+          Hey there, I'm Angela,
           <br />
-          Mainframe's Adaptive Response Interface Agent
+          AI Product Manager &amp; Machine Learning Researcher
         </div>
 
         <p
-          className="mb-5 text-white sm:mb-6"
+          className="mb-5 text-[var(--ink)] sm:mb-6"
           style={{
             fontSize: 'clamp(18px, 4vw, 26px)',
             lineHeight: 1.35,
@@ -55,37 +33,9 @@ export function Hero() {
         >
           {displayed}
           {!done && (
-            <span className="animate-blink ml-[2px] inline-block h-[1.1em] w-[2px] align-middle bg-white" />
+            <span className="animate-blink ml-[2px] inline-block h-[1.1em] w-[2px] align-middle bg-[var(--ink)]" />
           )}
         </p>
-
-        <div
-          className="flex flex-wrap gap-y-1"
-          style={{
-            opacity: pillsVisible ? 1 : 0,
-            transform: pillsVisible ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'opacity 0.4s ease, transform 0.4s ease',
-          }}
-        >
-          {PILL_LABELS.map((label) => (
-            <button
-              key={label}
-              type="button"
-              className="mx-[0.2em] mb-[0.4em] inline-flex items-center justify-center whitespace-nowrap rounded-full border border-black/10 bg-white px-4 py-[0.3em] text-[13px] text-black transition-colors duration-200 hover:bg-black hover:text-white sm:px-5 sm:text-[15px]"
-            >
-              {label}
-            </button>
-          ))}
-
-          <button
-            type="button"
-            onClick={handleCopy}
-            className="mx-[0.2em] mb-[0.4em] inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white bg-transparent px-4 py-[0.3em] text-[13px] text-white transition-colors duration-200 hover:bg-white hover:text-black sm:gap-3 sm:px-5 sm:text-[15px]"
-          >
-            Reach us: <span className="underline underline-offset-1">{EMAIL}</span>
-            <CopyIcon />
-          </button>
-        </div>
       </div>
     </section>
   )

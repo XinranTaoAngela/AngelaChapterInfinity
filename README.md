@@ -1,6 +1,6 @@
-# Mainframe
+# Angela Tao
 
-A full-screen hero landing page built with React, TypeScript, Vite, and Tailwind CSS.
+Personal landing page built with React, TypeScript, Vite, and Tailwind CSS.
 
 ## Development
 

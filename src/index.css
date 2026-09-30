@@ -3,12 +3,15 @@
 :root {
   --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'HelveticaNowDisplayW01-Rg', 'Helvetica Neue', Arial, sans-serif;
+  --cream: #f7f1e4;
+  --cream-deep: #ede4d0;
+  --ink: #211a14;
 }
 
 body {
   font-family: var(--font-body);
   margin: 0;
-  background: #000;
+  background: var(--cream);
 }
 
 @keyframes blink {
@@ -23,4 +26,9 @@ body {
 
 .animate-blink {
   animation: blink 1s step-end infinite;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--cream);
 }

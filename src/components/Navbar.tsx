@@ -24,20 +24,20 @@ export function Navbar({ onNavClick }: NavbarProps) {
       <header className="fixed inset-x-0 top-0 z-10 flex items-center justify-between px-5 py-4 sm:px-8 sm:py-5">
         <div className="flex flex-row items-center gap-3">
           <span
-            className="text-[21px] tracking-tight text-white sm:text-[26px]"
+            className="text-[21px] tracking-tight text-[var(--ink)] sm:text-[26px]"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Mainframe&reg;
+            Angela Tao
           </span>
           <span
-            className="select-none text-[25px] text-white sm:text-[30px]"
+            className="select-none text-[25px] text-[var(--ink)] sm:text-[30px]"
             style={{ letterSpacing: '-0.02em' }}
           >
             ✳︎
           </span>
         </div>
 
-        <nav className="hidden flex-row text-[23px] text-white md:flex">
+        <nav className="hidden flex-row text-[23px] text-[var(--ink)] md:flex">
           {NAV_LINKS.map((link, index) => (
             <span key={link.key}>
               <button type="button" onClick={() => handleClick(link.key)} className="transition-opacity hover:opacity-60">
@@ -51,7 +51,7 @@ export function Navbar({ onNavClick }: NavbarProps) {
         <button
           type="button"
           onClick={() => handleClick('contact')}
-          className="hidden text-[23px] text-white underline underline-offset-2 transition-opacity hover:opacity-60 md:block"
+          className="hidden text-[23px] text-[var(--ink)] underline underline-offset-2 transition-opacity hover:opacity-60 md:block"
         >
           Get in touch
         </button>
@@ -63,17 +63,17 @@ export function Navbar({ onNavClick }: NavbarProps) {
           className="flex flex-col gap-[5px] md:hidden"
         >
           <span
-            className={`h-[2px] w-6 bg-white transition-transform duration-300 ${
+            className={`h-[2px] w-6 bg-[var(--ink)] transition-transform duration-300 ${
               menuOpen ? 'translate-y-[7px] rotate-45' : ''
             }`}
           />
           <span
-            className={`h-[2px] w-6 bg-white transition-opacity duration-300 ${
+            className={`h-[2px] w-6 bg-[var(--ink)] transition-opacity duration-300 ${
               menuOpen ? 'opacity-0' : ''
             }`}
           />
           <span
-            className={`h-[2px] w-6 bg-white transition-transform duration-300 ${
+            className={`h-[2px] w-6 bg-[var(--ink)] transition-transform duration-300 ${
               menuOpen ? '-translate-y-[7px] -rotate-45' : ''
             }`}
           />
@@ -81,7 +81,7 @@ export function Navbar({ onNavClick }: NavbarProps) {
       </header>
 
       <div
-        className={`fixed inset-0 z-[9] flex flex-col justify-center gap-8 bg-black/90 px-8 backdrop-blur-md transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-[9] flex flex-col justify-center gap-8 bg-[var(--cream)]/95 px-8 backdrop-blur-md transition-opacity duration-300 md:hidden ${
           menuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
       >
@@ -89,7 +89,7 @@ export function Navbar({ onNavClick }: NavbarProps) {
           <button
             key={link.key}
             type="button"
-            className="text-left text-[32px] font-medium text-white"
+            className="text-left text-[32px] font-medium text-[var(--ink)]"
             onClick={() => handleClick(link.key)}
           >
             {link.label}
@@ -97,7 +97,7 @@ export function Navbar({ onNavClick }: NavbarProps) {
         ))}
         <button
           type="button"
-          className="text-left text-[32px] font-medium text-white underline underline-offset-2"
+          className="text-left text-[32px] font-medium text-[var(--ink)] underline underline-offset-2"
           onClick={() => handleClick('contact')}
         >
           Get in touch
