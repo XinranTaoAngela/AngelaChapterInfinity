@@ -1,9 +1,23 @@
 import { useState } from 'react'
+import type { SectionKey } from './SectionOverlay'
 
-const NAV_LINKS = ['Labs', 'Studio', 'Openings', 'Shop']
+const NAV_LINKS: { label: string; key: SectionKey }[] = [
+  { label: 'Education', key: 'education' },
+  { label: 'Experience', key: 'experience' },
+  { label: 'Publications', key: 'publications' },
+]
 
-export function Navbar() {
+interface NavbarProps {
+  onNavClick: (key: SectionKey) => void
+}
+
+export function Navbar({ onNavClick }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const handleClick = (key: SectionKey) => {
+    setMenuOpen(false)
+    onNavClick(key)
+  }
 
   return (
     <>
@@ -25,21 +39,22 @@ export function Navbar() {
 
         <nav className="hidden flex-row text-[23px] text-white md:flex">
           {NAV_LINKS.map((link, index) => (
-            <span key={link}>
-              <a href="#" className="transition-opacity hover:opacity-60">
-                {link}
-              </a>
+            <span key={link.key}>
+              <button type="button" onClick={() => handleClick(link.key)} className="transition-opacity hover:opacity-60">
+                {link.label}
+              </button>
               {index < NAV_LINKS.length - 1 && ', '}
             </span>
           ))}
         </nav>
 
-        <a
-          href="#"
+        <button
+          type="button"
+          onClick={() => handleClick('contact')}
           className="hidden text-[23px] text-white underline underline-offset-2 transition-opacity hover:opacity-60 md:block"
         >
           Get in touch
-        </a>
+        </button>
 
         <button
           type="button"
@@ -71,22 +86,22 @@ export function Navbar() {
         }`}
       >
         {NAV_LINKS.map((link) => (
-          <a
-            key={link}
-            href="#"
-            className="text-[32px] font-medium text-white"
-            onClick={() => setMenuOpen(false)}
+          <button
+            key={link.key}
+            type="button"
+            className="text-left text-[32px] font-medium text-white"
+            onClick={() => handleClick(link.key)}
           >
-            {link}
-          </a>
+            {link.label}
+          </button>
         ))}
-        <a
-          href="#"
-          className="text-[32px] font-medium text-white underline underline-offset-2"
-          onClick={() => setMenuOpen(false)}
+        <button
+          type="button"
+          className="text-left text-[32px] font-medium text-white underline underline-offset-2"
+          onClick={() => handleClick('contact')}
         >
           Get in touch
-        </a>
+        </button>
       </div>
     </>
   )
