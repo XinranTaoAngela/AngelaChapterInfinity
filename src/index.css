@@ -3,8 +3,8 @@
 :root {
   --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'HelveticaNowDisplayW01-Rg', 'Helvetica Neue', Arial, sans-serif;
-  --cream: #f7f1e4;
-  --cream-deep: #ede4d0;
+  --cream: #f4e6d5;
+  --cream-deep: #ebd6bf;
   --ink: #211a14;
 }
 
@@ -31,4 +31,33 @@ body {
 ::selection {
   background: var(--ink);
   color: var(--cream);
+}
+
+/* felt avatar that follows the cursor */
+.avatar-frame {
+  aspect-ratio: 832 / 1088;
+  height: 100vh;
+  height: 100dvh;
+  right: 4vw;
+  bottom: 0;
+  --fade-x: linear-gradient(to right, transparent 0%, #000 20%, #000 80%, transparent 100%);
+  --fade-y: linear-gradient(to bottom, transparent 0%, #000 6%);
+  -webkit-mask-image: var(--fade-x), var(--fade-y);
+  -webkit-mask-composite: source-in;
+  mask-image: var(--fade-x), var(--fade-y);
+  mask-composite: intersect;
+}
+
+@media (max-width: 767px) {
+  .avatar-frame {
+    height: auto;
+    width: min(100vw, 520px);
+    right: auto;
+    left: 50%;
+    top: 48px;
+    bottom: auto;
+    transform: translateX(-50%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 88%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 88%);
+  }
 }

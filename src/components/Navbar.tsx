@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { SectionKey } from './SectionOverlay'
+import { PeachLogo } from './PeachLogo'
 
 const NAV_LINKS: { label: string; key: SectionKey }[] = [
   { label: 'Education', key: 'education' },
@@ -29,12 +30,7 @@ export function Navbar({ onNavClick }: NavbarProps) {
           >
             Angela Tao
           </span>
-          <span
-            className="select-none text-[25px] text-[var(--ink)] sm:text-[30px]"
-            style={{ letterSpacing: '-0.02em' }}
-          >
-            ✳︎
-          </span>
+          <PeachLogo className="h-[26px] w-[26px] select-none sm:h-[32px] sm:w-[32px]" />
         </div>
 
         <nav className="hidden flex-row text-[23px] text-[var(--ink)] md:flex">
