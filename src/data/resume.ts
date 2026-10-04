@@ -15,6 +15,7 @@ export interface ExperienceEntry {
 export interface PublicationEntry {
   citation: string
   link?: string
+  linkLabel?: string
 }
 
 export const EDUCATION: EducationEntry[] = [
@@ -23,7 +24,6 @@ export const EDUCATION: EducationEntry[] = [
     degree: 'Master of Science in Artificial Intelligence',
     period: 'Sep 2024 – May 2026',
     details: [
-      'GPA: 3.9/4.0',
       'Coursework: Machine Learning, Deep Learning, Natural Language Processing, Information Retrieval, Computer Vision, Advanced AI, Algorithms, Advanced Perception, AI for HCI, VR',
     ],
   },
@@ -89,12 +89,14 @@ export const EXPERIENCE: ExperienceEntry[] = [
 
 export const PUBLICATIONS: PublicationEntry[] = [
   {
-    citation: 'Tao, A. et al. "Agent Tool-Calling Benchmarks for LLM Evaluation" — arXiv:2412.15660 (2024)',
+    citation: 'Zeng, G. et al. (including Xinran Tao). "Adaptable and Precise: Enterprise-Scenario LLM Function-Calling Capability Training Pipeline." arXiv:2412.15660 (2024).',
     link: 'https://arxiv.org/abs/2412.15660',
   },
   {
     citation:
-      'Tao, X., Song, X., Wu, J., Khoei, T.T. "RCAL: Reinforced Cross-Modal Alignment for Multimodal Sentiment Analysis with Sparse Visual Frames." 2026 IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP). Accepted, presenting May 2026.',
+      'Song, X., Tao, X., Wu, J., Khoei, T. "RCAL: Reinforced Cross-Modal Alignment for Multimodal Sentiment Analysis with Sparse Visual Frames." 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).',
+    link: 'https://www.cmsworkshops.com/ICASSP2026/view_paper.php?PaperNum=14839',
+    linkLabel: 'Paper details',
   },
 ]
 
