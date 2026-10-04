@@ -21,9 +21,9 @@ export function ContactDialog({ open, onClose }: { open: boolean; onClose: () =>
   }}>
     <button className="dialog-close" aria-label="Close contact information" onClick={() => dialog.current?.close()}>×</button>
     <p className="eyebrow">THE HUMAN EDITION</p><h2 id="contact-title">Hey, let’s talk.</h2>
-    <p>Your email app should open. If it doesn’t, copy my address or use the link below.</p>
-    <a className="email-address" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
-    <div className="contact-actions"><a href={`mailto:${CONTACT.email}`}>Open email app ↗</a><button onClick={() => void copyEmail()}>Copy email</button></div>
+    <p>Reach me at:</p>
+    <p className="email-address">{CONTACT.email}</p>
+    <div className="contact-actions"><button type="button" onClick={() => void copyEmail()}>Copy email</button></div>
     <p className="copy-status" role="status">{copyStatus}</p>
   </dialog>
 }

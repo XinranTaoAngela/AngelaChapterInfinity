@@ -17,7 +17,7 @@ function App() {
     <LiquidScene motion={motion} />
     <div className="site-shell">
     <a className="skip-link" href="#main">Skip to content</a>
-    <header className="site-header"><a className="wordmark" href="#">angela tao<span>✳</span></a><nav aria-label="Main navigation"><a href="#conversation">Meet my AI</a><a href="#background">My background</a><a className="contact-link" href={`mailto:${CONTACT.email}`} onClick={() => setContactOpen(true)}>Say hello ↗</a></nav></header>
+    <header className="site-header"><a className="wordmark" href="#">angela tao<span>✳</span></a><nav aria-label="Main navigation"><a href="#conversation">Meet my AI</a><a href="#background">My background</a><button type="button" className="contact-link" onClick={() => setContactOpen(true)}>Say hello</button></nav></header>
     <main id="main">
       <section className="hero" id="conversation" aria-labelledby="intro-title">
         <div className="intro">
@@ -48,9 +48,9 @@ function App() {
           {tab === 'publications' && PUBLICATIONS.map((entry, i) => <article className="publication-row" key={entry.citation}><span className="row-number">0{i + 1}</span><p>{entry.citation}</p>{entry.link && <a href={entry.link} target="_blank" rel="noreferrer">{entry.linkLabel || 'Read paper'} ↗</a>}</article>)}
         </div>
       </section>
-      <section className="contact-section"><p className="eyebrow">KEEP THE CONVERSATION GOING</p><h2>Let’s build something <em>meaningful.</em></h2><a href={`mailto:${CONTACT.email}`} onClick={() => setContactOpen(true)}>Say hello to the real me ↗</a></section>
+      <section className="contact-section"><p className="eyebrow">KEEP THE CONVERSATION GOING</p><h2>Let’s build something <em>meaningful.</em></h2><button type="button" onClick={() => setContactOpen(true)}>Say hello to the real me</button></section>
     </main>
-    <footer><a className="wordmark" href="#">angela tao<span>✳</span></a><p>A human, and her AI counterpart.</p><div><a href={CONTACT.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a><a href={CONTACT.github} target="_blank" rel="noreferrer">GitHub ↗</a><a href={`mailto:${CONTACT.email}`}>Email ↗</a></div></footer>
+    <footer><a className="wordmark" href="#">angela tao<span>✳</span></a><p>A human, and her AI counterpart.</p><div><a href={CONTACT.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a><a href={CONTACT.github} target="_blank" rel="noreferrer">GitHub ↗</a><button type="button" onClick={() => setContactOpen(true)}>Email</button></div></footer>
     <ContactDialog open={contactOpen} onClose={() => setContactOpen(false)} />
     </div>
   </div>

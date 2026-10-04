@@ -23,7 +23,7 @@ Edit `src/data/resume.ts` for professional background and `src/data/persona.ts` 
 
 Publication titles and author order were checked against [arXiv](https://arxiv.org/abs/2412.15660) and the [ICASSP conference record](https://www.cmsworkshops.com/ICASSP2026/view_paper.php?PaperNum=14839). The RCAL button links to the conference details rather than claiming to provide full-text access.
 
-“Say hello” links directly to `mailto:xinran.tao2001@gmail.com` and also reveals a dialog with the address and a copy button, for browsers without an email handler.
+“Say hello” and the footer Email button open a centered dialog with the address and a copy button. They do not navigate or launch an external email app.
 
 ## Build and verification
 
