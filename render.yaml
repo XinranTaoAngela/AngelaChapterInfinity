@@ -1,0 +1,26 @@
+# Backend only. The existing website stays on GitHub Pages.
+# Supply API credentials in Render; never commit them to this file.
+services:
+  - type: web
+    name: angela-agent-twin
+    runtime: node
+    plan: free
+    branch: main
+    buildCommand: node --check server/index.mjs
+    startCommand: node server/index.mjs
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.18.0
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: ALLOWED_ORIGINS
+        value: https://xinrantaoangela.github.io
+      - key: DAILY_REQUEST_LIMIT
+        value: '200'
+      - key: TRUST_PROXY
+        value: 'false'

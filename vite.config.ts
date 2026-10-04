@@ -6,4 +6,11 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   base: '/AngelaChapterInfinity/',
   plugins: [react(), tailwindcss()],
+  server: {
+    port: 5173,
+    strictPort: true,
+    proxy: {
+      '/api': { target: 'http://localhost:3001', changeOrigin: true },
+    },
+  },
 })

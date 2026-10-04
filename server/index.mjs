@@ -20,7 +20,10 @@ export const server = createServer(async (req, res) => {
   if (req.method === 'OPTIONS') {
     res.writeHead(204, { 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Max-Age': '600' }); return res.end()
   }
-  if (req.url === '/health' && req.method === 'GET') return json(res, 200, { configured: Boolean(process.env.OPENAI_API_KEY && process.env.OPENAI_MODEL) })
+  if ((req.url === '/health' || req.url === '/ready') && req.method === 'GET') {
+    const configured = Boolean(process.env.OPENAI_API_KEY?.trim() && process.env.OPENAI_MODEL?.trim())
+    return json(res, req.url === '/ready' && !configured ? 503 : 200, { configured })
+  }
   if (req.url !== '/api/chat') return json(res, 404, { error: 'Not found.' })
   if (req.method !== 'POST') { res.setHeader('Allow', 'POST'); return json(res, 405, { error: 'Use POST.' }) }
   if (!req.headers['content-type']?.startsWith('application/json')) return json(res, 415, { error: 'Expected JSON.' })
@@ -60,4 +63,4 @@ export const server = createServer(async (req, res) => {
   } catch { return json(res, 502, { error: 'Unable to complete the conversation.' }) }
 })
 
-if (process.env.NODE_ENV !== 'test') server.listen(port, () => console.log(`Angela's agent server listening on port ${port}`))
+if (process.env.NODE_ENV !== 'test') server.listen(port, '0.0.0.0', () => console.log(`Angela's agent server listening on port ${port}`))

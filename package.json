@@ -9,7 +9,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "agent": "node --env-file-if-exists=.env.local server/index.mjs",
-    "test:agent": "node --test server/agent.test.mjs"
+    "test:agent": "node --test server/agent.test.mjs",
+    "verify:agent": "node scripts/verify-agent.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",

@@ -1,12 +1,12 @@
 # Growing Angela’s counterpart
 
-Start with `src/data/persona.ts`. It is the owner-curated source for personal knowledge, separate from the résumé in `src/data/resume.ts`. The live server loads both into every conversation. The local preview also reads the personal entries, but remains scripted rather than generative.
+Start with `src/data/persona.ts`. It is the owner-curated source for personal knowledge, separate from the résumé in `src/data/resume.ts`. The live server loads both into every conversation. All chat replies come from the live model; there is no scripted preview fallback.
 
 The starter voice is sassy because Angela explicitly requested it. Other personal attributes are left blank. This is a prompt-and-context foundation, not a distilled or fine-tuned model, and there is no automatic learning from visitor chats.
 
 ## Add a little at a time
 
-Add approved public entries to `facts`, `preferences`, `values`, `stories`, and `opinions`. Use real, owner-written information. A topic should be specific enough to match a visitor’s question; the offline preview does simple text matching, while live AI can interpret the full context.
+Add approved public entries to `facts`, `preferences`, `values`, `stories`, and `opinions`. Use real, owner-written information. Give each entry a specific topic so the live AI can interpret it with the surrounding context.
 
 Copy this shape into the appropriate array and replace every placeholder:
 
@@ -40,4 +40,4 @@ Examples guide rhythm, humor, vocabulary, and how you respond. Keep them represe
 3. Restart the local agent server after editing. In production, redeploy both server and frontend to update their context.
 4. Try “What are you like?”, a question covered by a new note, an unknown personal question, a brainstorm, and a follow-up. Confirm that the agent separates its generated perspective from your documented views.
 
-A live model still needs `OPENAI_API_KEY`, `OPENAI_MODEL`, and the frontend endpoint from `.env.example`. Without these, the UI explicitly shows a persona preview. No training data is sent for fine-tuning by this app. Later, authentic examples can support a separate evaluation or training project, but this version only uses them as conversation context.
+A live model needs `OPENAI_API_KEY`, `OPENAI_MODEL`, and the production frontend endpoint from `.env.example`. Without these, the UI reports chat unavailable. No training data is sent for fine-tuning by this app. Later, authentic examples can support a separate evaluation or training project, but this version only uses them as conversation context.

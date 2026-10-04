@@ -56,6 +56,20 @@ test('returns clear unconfigured status', async () => {
   delete process.env.OPENAI_API_KEY
   try { assert.equal((await post({ messages: [{ role: 'user', content: 'hello' }] })).status, 503) } finally { process.env.OPENAI_API_KEY = key }
 })
+test('readiness only succeeds when server credentials are configured', async () => {
+  const readyUrl = new URL('/ready', url)
+  const configured = await fetch(readyUrl)
+  assert.equal(configured.status, 200)
+  assert.deepEqual(await configured.json(), { configured: true })
+  const key = process.env.OPENAI_API_KEY
+  delete process.env.OPENAI_API_KEY
+  try {
+    const unavailable = await fetch(readyUrl)
+    assert.equal(unavailable.status, 503)
+    assert.deepEqual(await unavailable.json(), { configured: false })
+    assert.equal((await fetch(new URL('/health', url))).status, 200)
+  } finally { process.env.OPENAI_API_KEY = key }
+})
 test('limits repeated requests before model calls', async () => {
   let response
   for (let i = 0; i < 11; i++) response = await post({ messages: [{ role: 'user', content: 'hello' }] })
