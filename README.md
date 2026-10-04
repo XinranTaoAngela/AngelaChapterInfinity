@@ -1,6 +1,6 @@
 # Angela Tao
 
-Personal website built with React, TypeScript, Vite, and Tailwind CSS. An avatar-free editorial layout features a sassy AI counterpart and accessible experience, education, and publication tabs.
+Personal website built with React, TypeScript, Vite, and Tailwind CSS. A liquid-glass layout features an evolving sassy AI counterpart, interactive color palettes, and accessible experience, education, and publication tabs.
 
 ## Development
 
@@ -9,7 +9,7 @@ npm ci
 npm run dev
 ```
 
-Use Node.js 22.18 or newer. Without `VITE_AGENT_API_URL`, chat runs a clearly labeled local résumé preview. These are predefined answers, not generated AI replies.
+Use Node.js 22.18 or newer. Without `VITE_AGENT_API_URL`, chat runs a clearly labeled local persona preview. These are predefined answers, not generated AI replies.
 
 ## Live AI counterpart
 
@@ -19,7 +19,11 @@ Run `npm run agent` in one terminal and `npm run dev` in another. With `VITE_AGE
 
 The server uses the [OpenAI Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses), sends the last 12 messages, limits output length, and sets `store: false`. This disables response application storage, not all provider retention. The UI discloses that messages go to OpenAI. The app itself does not persist conversations.
 
-Edit `src/data/resume.ts` to maintain the shared public résumé and agent knowledge. Edit the server instructions in `server/index.mjs` to tune sass and add approved personal stories or writing examples. The tone is a starting persona; an accurate personal replica needs your own examples and facts. Unknown personal answers stay unknown. Publication citations are preserved as supplied and have not been independently verified.
+Edit `src/data/resume.ts` for professional background and `src/data/persona.ts` for your voice, facts, preferences, values, stories, opinions, and authentic writing examples. Follow [the persona guide](docs/persona-guide.md) to add information over time. `server/persona.mjs` combines both into the live agent instructions, following [OpenAI prompt guidance](https://developers.openai.com/api/docs/guides/prompt-engineering). The live agent can discuss everyday topics and brainstorm, while distinguishing generated perspectives from your documented views. This is a context-based foundation, not a distilled or fine-tuned model. Visitors cannot update your persona.
+
+Publication titles and author order were checked against [arXiv](https://arxiv.org/abs/2412.15660) and the [ICASSP conference record](https://www.cmsworkshops.com/ICASSP2026/view_paper.php?PaperNum=14839). The RCAL button links to the conference details rather than claiming to provide full-text access.
+
+“Say hello” links directly to `mailto:xinran.tao2001@gmail.com` and also reveals a dialog with the address and a copy button, for browsers without an email handler.
 
 ## Build and verification
 
