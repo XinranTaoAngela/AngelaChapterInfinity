@@ -1,6 +1,6 @@
 # Angela Tao
 
-Personal website built with React, TypeScript, Vite, and Tailwind CSS. A liquid-glass layout features an evolving sassy AI counterpart, interactive color palettes, and accessible experience, education, and publication tabs.
+Personal website built with React, TypeScript, Vite, and Tailwind CSS. A liquid-glass layout features Angela's sassy AI agent twin, interactive color palettes, and accessible experience, education, and publication tabs.
 
 ## Development
 
@@ -20,6 +20,8 @@ Run `npm run agent` in one terminal and `npm run dev` in another. In development
 The server uses the [OpenAI Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses), sends the last 12 messages, limits output length, and sets `store: false`. This disables response application storage, not all provider retention. The UI discloses that messages go to OpenAI. The app itself does not persist conversations.
 
 Edit `src/data/resume.ts` for professional background and `src/data/persona.ts` for your voice, facts, preferences, values, stories, opinions, and authentic writing examples. Follow [the persona guide](docs/persona-guide.md) to add information over time. `server/persona.mjs` combines both into the live agent instructions, following [OpenAI prompt guidance](https://developers.openai.com/api/docs/guides/prompt-engineering). The live agent can discuss everyday topics and brainstorm, while distinguishing generated perspectives from your documented views. This is a context-based foundation, not a distilled or fine-tuned model. Visitors cannot update your persona.
+
+The persona now includes Angela's owner-authored October 5, 2026 autobiography, with first-person answers about her upbringing, performing arts, liberal-arts education, career transition, confidence, and travel aspirations. Her original wording is retained as the source of truth. Personal details not displayed in the résumé can be shared through chat, but unspecified favorites, memories, and opinions must not be guessed.
 
 Publication titles and author order were checked against [arXiv](https://arxiv.org/abs/2412.15660) and the [ICASSP conference record](https://www.cmsworkshops.com/ICASSP2026/view_paper.php?PaperNum=14839). The RCAL button links to the conference details rather than claiming to provide full-text access.
 
