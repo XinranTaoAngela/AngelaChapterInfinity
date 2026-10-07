@@ -63,8 +63,8 @@ button:focus-visible, a:focus-visible, textarea:focus-visible, [tabindex]:focus-
   box-shadow: inset 0 1px 0 #fff, 0 8px 35px #666c9510;
 }
 .wordmark { font-family: var(--serif); font-size: 28px; letter-spacing: -1px; display: inline-flex; align-items: center; gap: 12px; }
-.wordmark span { color: var(--accent); font-size: 31px; transition: transform .6s; }
-.wordmark:hover span { transform: rotate(120deg); }
+.wordmark-logo { display: block; flex-shrink: 0; transition: transform .3s; }
+.wordmark:hover .wordmark-logo { transform: translateY(-2px) rotate(-6deg); }
 .site-header nav { display: flex; align-items: center; gap: 32px; font-size: 12px; }
 .site-header nav a, .site-header nav button { transition: color .2s, transform .2s; }
 .site-header nav a:hover, .site-header nav button:hover { color: var(--accent); transform: translateY(-2px); }
@@ -120,7 +120,8 @@ em { font-family: var(--serif); font-weight: 400; color: var(--accent); }
 .chat-card>* { position: relative; }
 .chat-card:hover { box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #ffffff80, 0 30px 85px #535b9030, 0 4px 15px #ffffff4f; }
 .chat-header { display: flex; align-items: center; gap: 12px; padding: 22px 25px 20px; border-bottom: 1px solid #ffffff8a; }
-.agent-symbol { display: grid; place-items: center; width: 43px; height: 43px; flex-shrink: 0; font-size: 32px; color: var(--accent); border-radius: 16px; background: linear-gradient(145deg, #ffffffd9, #ffffff30); border: 1px solid white; box-shadow: inset 0 1px 4px #fff, 0 5px 12px #63699a0f; }
+.agent-symbol { display: grid; place-items: center; width: 43px; height: 43px; flex-shrink: 0; border-radius: 16px; background: #ffffff80; border: 1px solid white; box-shadow: inset 0 1px 4px #fff, 0 5px 12px #00000008; }
+.agent-symbol img { display: block; }
 .chat-header h2 { font-family: inherit; font-size: 13px; font-weight: 600; letter-spacing: -.2px; margin: 0 0 6px; }
 .chat-header p { display: flex; align-items: center; gap: 6px; font-size: 9px; color: var(--muted); margin: 0; }
 .reset-chat { margin-left: auto; border: 1px solid #ffffffa0; background: #ffffff30; border-radius: 50%; width: 30px; height: 30px; font-size: 20px; color: var(--muted); transition: transform .5s; }

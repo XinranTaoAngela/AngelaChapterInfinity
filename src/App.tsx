@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Chat } from './components/Chat'
 import { ContactDialog } from './components/ContactDialog'
+import { PeachLogo } from './components/PeachLogo'
 import { GlassControls, LiquidScene, type GlassMood } from './components/LiquidScene'
 import { CONTACT, EDUCATION, EXPERIENCE, PUBLICATIONS } from './data/resume'
 
@@ -17,7 +18,7 @@ function App() {
     <LiquidScene motion={motion} />
     <div className="site-shell">
     <a className="skip-link" href="#main">Skip to content</a>
-    <header className="site-header"><a className="wordmark" href="#">angela tao<span>✳</span></a><nav aria-label="Main navigation"><a href="#conversation">Meet my AI</a><a href="#background">My background</a><button type="button" className="contact-link" onClick={() => setContactOpen(true)}>Say hello</button></nav></header>
+    <header className="site-header"><a className="wordmark" href="#">angela tao<PeachLogo size={34} className="wordmark-logo" decorative /></a><nav aria-label="Main navigation"><a href="#conversation">Meet my AI</a><a href="#background">My background</a><button type="button" className="contact-link" onClick={() => setContactOpen(true)}>Say hello</button></nav></header>
     <main id="main">
       <section className="hero" id="conversation" aria-labelledby="intro-title">
         <div className="intro">
@@ -50,7 +51,7 @@ function App() {
       </section>
       <section className="contact-section"><p className="eyebrow">KEEP THE CONVERSATION GOING</p><h2>Let’s build something <em>meaningful.</em></h2><button type="button" onClick={() => setContactOpen(true)}>Say hello to the real me</button></section>
     </main>
-    <footer><a className="wordmark" href="#">angela tao<span>✳</span></a><p>A human, and her AI counterpart.</p><div><a href={CONTACT.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a><a href={CONTACT.github} target="_blank" rel="noreferrer">GitHub ↗</a><button type="button" onClick={() => setContactOpen(true)}>Email</button></div></footer>
+    <footer><a className="wordmark" href="#">angela tao<PeachLogo size={34} className="wordmark-logo" decorative /></a><p>A human, and her AI counterpart.</p><div><a href={CONTACT.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a><a href={CONTACT.github} target="_blank" rel="noreferrer">GitHub ↗</a><button type="button" onClick={() => setContactOpen(true)}>Email</button></div></footer>
     <ContactDialog open={contactOpen} onClose={() => setContactOpen(false)} />
     </div>
   </div>

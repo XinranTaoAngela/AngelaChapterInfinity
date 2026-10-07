@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Message } from '../data/agent'
+import { PeachLogo } from './PeachLogo'
 
 const endpoint = (import.meta.env.VITE_AGENT_API_URL as string | undefined)?.trim() || (import.meta.env.DEV ? '/api/chat' : undefined)
 const suggestions = ['What’s your personality like?', 'Let’s brainstorm an idea', 'What are you working on?']
@@ -48,7 +49,7 @@ export function Chat() {
     card.current?.style.setProperty('--shine-x', `${((event.clientX - bounds.left) / bounds.width) * 100}%`)
     card.current?.style.setProperty('--shine-y', `${((event.clientY - bounds.top) / bounds.height) * 100}%`)
   }}>
-    <div className="chat-header"><div className="agent-symbol" aria-hidden="true">✳</div><div><h2>Angela, in a conversation</h2><p><span className="status-dot" /> {endpoint ? 'Agent twin · sass included' : 'Chat unavailable'}</p></div><button className="reset-chat" onClick={() => { setMessages([]); setError(''); setDraft(''); input.current?.focus() }} disabled={busy || !messages.length} aria-label="Start a new conversation" title="New conversation">↺</button></div>
+    <div className="chat-header"><div className="agent-symbol" aria-hidden="true"><PeachLogo size={34} decorative /></div><div><h2>Angela, in a conversation</h2><p><span className="status-dot" /> {endpoint ? 'Agent twin · sass included' : 'Chat unavailable'}</p></div><button className="reset-chat" onClick={() => { setMessages([]); setError(''); setDraft(''); input.current?.focus() }} disabled={busy || !messages.length} aria-label="Start a new conversation" title="New conversation">↺</button></div>
     <div className="chat-content" ref={scroll}>
       <div className="chat-welcome"><span className="message-label">ANGELA’S AI</span><p>Hey, I’m Angela’s agent twin. <span aria-hidden="true">✧</span></p><p>What’s on your mind?</p></div>
       {!messages.length && <div className="suggestions"><span className="suggestion-caption">SKIP THE SMALL TALK</span>{suggestions.map(text => <button key={text} onClick={() => void send(text)}>{text}<span>↗</span></button>)}</div>}
